@@ -1,17 +1,21 @@
 import ProductCard from "@/components/cards/ProductCard";
+import { PaginationComponent } from "@/components/pagination";
 import { IProductCard } from "@/lib/types";
 import { useEffect, useState } from "react";
 
-export default function ProductList() {
+type ProductListProps = {
+  range: number[]; // Accept range as a prop
+};
+
+export default function ProductList({ range }: ProductListProps) {
   const [loading, setLoading] = useState(true);
   const [allProducts, setAllProducts] = useState<IProductCard[]>([]);
-  const [range, setRange] = useState<number[]>([5, 1000]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("https://dummyjson.com/products?limit=5");
+        const response = await fetch("https://dummyjson.com/products?limit=45");
         const data = await response.json();
         setAllProducts(data.products);
       } catch (error) {
@@ -23,14 +27,21 @@ export default function ProductList() {
 
     fetchProducts();
   }, []);
+  console.log(range, "from productlist");
+
+  const filteredProducts = allProducts.filter(
+    (product) => product.price >= range[0] && product.price <= range[1]
+  );
+
+  console.log(filteredProducts);
 
   return (
     <div>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 my-10 gap-2">
-          {allProducts.map((product) => (
+        <div className="min-h-[60rem] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 my-10 gap-2">
+          {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
               thumbnail={product.thumbnail}
@@ -48,6 +59,7 @@ export default function ProductList() {
           ))}
         </div>
       )}
+      <PaginationComponent />
     </div>
   );
 }
