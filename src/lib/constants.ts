@@ -1,5 +1,5 @@
-import { SPONSORS_IMAGES } from "@/images/sponsors/images";
-import { INavLink, ISponsorsImage } from "./types";
+import { FEATURES_ICONS, SPONSORS_IMAGES } from "./images";
+import { IFeatures, INavLink, ISponsorsImage } from "./types";
 
 
 
@@ -49,3 +49,27 @@ export const SPONSORS_SLIDES: ISponsorsImage[] = [
         alt:"fictional sponsor logo",
     }
 ]
+
+
+export const FEATURES_CARDS: IFeatures[] = [
+    {
+      title: "Exclusive Collections",
+      description: "high-quality",
+      icon: FEATURES_ICONS.collectionIcon
+    },
+    {
+      title: "Special Discount",
+      description: "high-quality",
+      icon: FEATURES_ICONS.discountIcon,
+    },
+    {
+      title: "Affordable Prices",
+      description: "high-quality",
+      icon: FEATURES_ICONS.shoppingIcon,
+    },
+    {
+      title: "Convenient Shopping",
+      description: "high-quality",
+      icon: FEATURES_ICONS.walletIcon,
+    },
+  ];

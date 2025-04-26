@@ -14,8 +14,8 @@ const muli = localfont({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={`${muli.className} antialiased`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body className={`${muli.className} antialiased overflow-x-hidden`}>
         <Sidebar />
         <main className="w-full">
           <Navbar />

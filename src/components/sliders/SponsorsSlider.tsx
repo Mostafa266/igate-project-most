@@ -27,8 +27,8 @@ const SponsorsSlider = () => {
                       <Image
                         src={slide.src}
                         alt={slide.alt}
-                        width={120}
-                        height={120}
+                        width={100}
+                        style={{ height: "auto" }}
                       />
                     </CardContent>
                   </Card>

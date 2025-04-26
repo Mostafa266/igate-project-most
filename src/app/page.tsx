@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import Features from "@/components/sections/Features";
 import SponsorsSlider from "@/components/sliders/SponsorsSlider";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Header />
       <SponsorsSlider />
+      <Features />
     </>
   );
 }

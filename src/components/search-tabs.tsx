@@ -18,12 +18,12 @@ export default function SearchTabs() {
     <div className="w-full max-w-xl mx-auto py-6 space-y-6">
       {/* Tabs */}
       <Tabs defaultValue="All" onValueChange={(value) => setActiveTab(value)}>
-        <TabsList className="grid w-full grid-cols-4 bg-transparent gap-2">
+        <TabsList className="hidden md:grid  w-full grid-cols-4 bg-transparent gap-2">
           {Object.keys(placeholderMap).map((tab) => (
             <TabsTrigger
               key={tab}
               value={tab}
-              className="text-sm font-medium text-white bg-transparent rounded-none border-0 data-[state=active]:shadow-none data-[state=active]:border-b-[2px] data-[state=active]:border-orange-500 data-[state=active]:w-fit data-[state=active]:px-4 mx-auto data-[state=active]:bg-transparent cursor-pointer"
+              className=" text-sm font-bold text-white bg-transparent rounded-none border-0 data-[state=active]:shadow-none data-[state=active]:border-b-[2px] data-[state=active]:border-orange-500 data-[state=active]:w-fit data-[state=active]:px-4 mx-auto data-[state=active]:bg-transparent cursor-pointer"
             >
               {tab}
             </TabsTrigger>

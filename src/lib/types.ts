@@ -12,3 +12,9 @@ export type ISponsorsImage = {
     alt:string;
     link?:string;
 }
+
+export type IFeatures = {
+    title: string,
+    description:string,
+    icon:StaticImageData
+}
