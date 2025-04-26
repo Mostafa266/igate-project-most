@@ -4,7 +4,7 @@ import { FEATURES_CARDS } from "@/lib/constants";
 
 const FeaturesList = () => {
   return (
-    <div className="w-full grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-15">
+    <div className="w-full grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-15">
       {FEATURES_CARDS.map((item, index) => (
         <FeaturesCard
           key={index}
