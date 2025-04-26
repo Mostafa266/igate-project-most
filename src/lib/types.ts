@@ -42,3 +42,9 @@ export type IPagination = {
     currentPage:number;
     totalPages:number;
 }
+
+export type IProductState = {
+    products: IProductCard[];
+    filterProducts:IProductCard[];
+    loading:boolean;
+}

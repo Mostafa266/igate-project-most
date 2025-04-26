@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/layout/Header";
 import Features from "@/components/sections/Features";
 import Products from "@/components/sections/Products";

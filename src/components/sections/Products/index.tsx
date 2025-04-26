@@ -4,7 +4,7 @@ import ProductList from "./ProductList";
 
 const Products = () => {
   return (
-    <section className="w-full">
+    <section className="w-full bg-off-white py-20">
       <h2 className="text-5xl philo-font text-olive-gray text-center">
         All Products
       </h2>
