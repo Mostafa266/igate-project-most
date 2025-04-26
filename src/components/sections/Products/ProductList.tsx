@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function ProductList() {
   const [loading, setLoading] = useState(true);
   const [allProducts, setAllProducts] = useState<IProductCard[]>([]);
+  const [range, setRange] = useState<number[]>([5, 1000]);
 
   useEffect(() => {
     const fetchProducts = async () => {

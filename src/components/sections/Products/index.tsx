@@ -1,6 +1,8 @@
 import Container from "@/components/ui/container";
 import React from "react";
 import ProductList from "./ProductList";
+import { PriceFilter } from "@/app/filters/PriceFilter";
+import { CategoryFilter } from "@/app/filters/CategoryFilter";
 
 const Products = () => {
   return (
@@ -9,6 +11,9 @@ const Products = () => {
         All Products
       </h2>
       <Container>
+        <div className="w-full flex justify-between items-center mt-25">
+          <CategoryFilter />
+        </div>
         <ProductList />
       </Container>
     </section>
