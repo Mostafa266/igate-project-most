@@ -13,7 +13,6 @@ import shoppingIcon from '@/images/features/shopping.png';
 import walletIcon from '@/images/features/wallet.png';
 
 
-
 export const SPONSORS_IMAGES = {
     globalIcon: globalIcon,
     fancyIcon: fancyIcon,

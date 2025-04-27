@@ -1,5 +1,4 @@
 import ProductCard from "@/components/cards/ProductCard";
-import { PaginationComponent } from "@/components/pagination";
 import { IProductCard } from "@/lib/types";
 
 type ProductListProps = {
