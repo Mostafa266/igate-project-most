@@ -17,7 +17,7 @@ export default function ProductList({
   const filteredProducts = products.filter((product) => {
     const matchesPrice = product.price >= range[0] && product.price <= range[1];
     const matchesCategory =
-      selectedCategory === "all" || product.category === selectedCategory.slug;
+      selectedCategory === "all" || product.category === selectedCategory;
     return matchesPrice && matchesCategory;
   });
 

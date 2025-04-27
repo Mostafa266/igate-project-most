@@ -19,17 +19,18 @@ const Products = () => {
     const fetchProducts = async () => {
       const limit = 10;
       const skip = (page - 1) * limit;
-      const categoryQuery =
-        selectedCategory !== "all" ? `&category=${selectedCategory}` : "";
+      const baseUrl = selectedCategory !== "all" 
+        ? `https://dummyjson.com/products/category/${selectedCategory}`
+        : `https://dummyjson.com/products`;
 
       try {
         setLoading(true);
         const response = await fetch(
-          `https://dummyjson.com/products?limit=${limit}&skip=${skip}${categoryQuery}`
+          `${baseUrl}?limit=${limit}&skip=${skip}`
         );
         const data = await response.json();
-        setProducts(data.products);
-        setTotalPages(Math.min(Math.ceil(data.total / limit), 10));
+        setProducts(data.products || data);
+        setTotalPages(Math.min(Math.ceil((data.total || data.length) / limit), 10));
       } catch (error) {
         console.error("Error to get products", error);
       } finally {
