@@ -48,3 +48,9 @@ export type IProductState = {
     filterProducts:IProductCard[];
     loading:boolean;
 }
+
+
+export type ICategory = {
+    name: string;
+    slug: string;
+}

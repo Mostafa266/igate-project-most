@@ -135,13 +135,7 @@ export const Footer: React.FC = () => {
             <div className="grid grid-cols-3 md:grid-cols-7 gap-6">
               {paymentLogos.map((logo, index) => (
                 <div key={index} className="flex justify-center items-center">
-                  <Image
-                    src={logo.src}
-                    alt={`${logo.alt} logo`}
-                    width={80}
-                    height={50}
-                    className="object-contain"
-                  />
+                  <Image src={logo.src} alt={`${logo.alt} logo`} width={100} />
                 </div>
               ))}
             </div>
@@ -154,7 +148,7 @@ export const Footer: React.FC = () => {
       {/* Footer bottom part */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <Image src={logo} alt="Novara Logo" width={120} height={40} />
+          <Image src={logo} alt="Novara Logo" width={100} />
           <nav className="flex flex-wrap gap-2 md:gap-6 text-sm">
             {["Products", "Sells", "Buy", "Contact", "Login"].map(
               (item, idx) => (

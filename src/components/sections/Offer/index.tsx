@@ -11,7 +11,7 @@ export default function Offer() {
       <Container>
         <div className="w-full flex justify-center items-center flex-col md:flex-row rounded-[0.4rem] overflow-hidden">
           <div className="w-full md:w-[40%] h-100 bg-gray-300 flex items-center justify-center">
-            <Image src={Logo} alt="" width={300} height={300} />
+            <Image src={Logo} alt="" width={100} />
           </div>
           <div className="w-full md:w-[60%] h-100 p-5 md:p-10 xl:p-22 bg-olive-gray flex justify-center items-start flex-col">
             <span className="text-base text-white">LIMITED OFFER</span>

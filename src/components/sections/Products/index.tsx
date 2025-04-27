@@ -37,6 +37,7 @@ const Products = () => {
       }
     };
     fetchProducts();
+    console.log(selectedCategory, "sad");
   }, [page, selectedCategory]);
 
   return (
