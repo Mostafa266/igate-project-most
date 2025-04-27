@@ -1,11 +1,40 @@
 import Container from "@/components/ui/container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import { PriceFilter } from "@/app/filters/PriceFilter";
 import { CategoryFilter } from "@/app/filters/CategoryFilter";
+import { useSearchParams } from "next/navigation";
+import { PaginationComponent } from "@/components/pagination";
 
 const Products = () => {
   const [range, setRange] = useState<number[]>([0, 1000]);
+  const searchParams = useSearchParams();
+  const page = parseInt(searchParams.get("page") || "1", 10);
+  const [products, setProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(Boolean);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const limit = 10;
+      const skip = (page - 1) * limit;
+
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+        );
+        const data = await response.json();
+        setProducts(data.products);
+        setTotalPages(Math.min(Math.ceil(data.total / limit), 10));
+      } catch (error) {
+        console.error("Error to get products", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, [page]);
 
   return (
     <section className="w-full bg-off-white py-20">
@@ -17,7 +46,8 @@ const Products = () => {
           <CategoryFilter />
           <PriceFilter range={range} setRange={setRange} />
         </div>
-        <ProductList range={range} />
+        <ProductList products={products} range={range} loading={loading} />
+        <PaginationComponent totalPages={totalPages} />
       </Container>
     </section>
   );

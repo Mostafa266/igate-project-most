@@ -1,35 +1,19 @@
 import ProductCard from "@/components/cards/ProductCard";
 import { PaginationComponent } from "@/components/pagination";
 import { IProductCard } from "@/lib/types";
-import { useEffect, useState } from "react";
 
 type ProductListProps = {
-  range: number[]; // Accept range as a prop
+  range: number[];
+  products: IProductCard[];
+  loading: boolean;
 };
 
-export default function ProductList({ range }: ProductListProps) {
-  const [loading, setLoading] = useState(true);
-  const [allProducts, setAllProducts] = useState<IProductCard[]>([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch("https://dummyjson.com/products?limit=45");
-        const data = await response.json();
-        setAllProducts(data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-  console.log(range, "from productlist");
-
-  const filteredProducts = allProducts.filter(
+export default function ProductList({
+  range,
+  products,
+  loading,
+}: ProductListProps) {
+  const filteredProducts = products.filter(
     (product) => product.price >= range[0] && product.price <= range[1]
   );
 
@@ -59,7 +43,6 @@ export default function ProductList({ range }: ProductListProps) {
           ))}
         </div>
       )}
-      <PaginationComponent />
     </div>
   );
 }
