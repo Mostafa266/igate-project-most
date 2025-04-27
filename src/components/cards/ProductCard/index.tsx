@@ -8,15 +8,9 @@ import React from "react";
 export default function ProductCard({
   id,
   title,
-  description,
   price,
-  discountPercentage,
-  rating,
-  stock,
-  brand,
   category,
   thumbnail,
-  images,
 }: IProductCard) {
   return (
     <Link
