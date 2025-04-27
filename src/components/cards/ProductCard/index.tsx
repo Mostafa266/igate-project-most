@@ -46,6 +46,7 @@ export default function ProductCard({
             ${price}
           </span>
           <h3 className="text-base font-medium">{title}</h3>
+          <span className="text-xs text-gray-300">{category}</span>
         </CardFooter>
       </Card>
     </Link>

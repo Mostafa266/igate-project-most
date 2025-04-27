@@ -6,18 +6,21 @@ type ProductListProps = {
   range: number[];
   products: IProductCard[];
   loading: boolean;
+  selectedCategory: string;
 };
 
 export default function ProductList({
   range,
   products,
   loading,
+  selectedCategory,
 }: ProductListProps) {
-  const filteredProducts = products.filter(
-    (product) => product.price >= range[0] && product.price <= range[1]
-  );
-
-  console.log(filteredProducts);
+  const filteredProducts = products.filter((product) => {
+    const matchesPrice = product.price >= range[0] && product.price <= range[1];
+    const matchesCategory =
+      selectedCategory === "all" || product.category === selectedCategory.slug;
+    return matchesPrice && matchesCategory;
+  });
 
   return (
     <div>
