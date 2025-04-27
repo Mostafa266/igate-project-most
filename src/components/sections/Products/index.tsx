@@ -1,12 +1,12 @@
 import Container from "@/components/ui/container";
-import React, { useEffect, useState, SetStateAction } from "react";
+import React, { useEffect, useState, SetStateAction, Suspense } from "react";
 import ProductList from "./ProductList";
 import { PriceFilter } from "@/filters/PriceFilter";
 import { CategoryFilter } from "@/filters/CategoryFilter";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { PaginationComponent } from "@/components/pagination";
 
-const Products = () => {
+const ProductsContent = () => {
   const [range, setRange] = useState<number[]>([0, 1000]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const searchParams = useSearchParams();
@@ -74,6 +74,14 @@ const Products = () => {
         <PaginationComponent totalPages={totalPages} />
       </Container>
     </section>
+  );
+};
+
+const Products = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 };
 
