@@ -8,9 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-type Category = {
-  slug: string;
-};
 
 type CategoryFilterProps = {
   selectedCategory: string;
@@ -21,7 +18,7 @@ export function CategoryFilter({
   selectedCategory,
   setSelectedCategory,
 }: CategoryFilterProps) {
-  const [categories, setCategories] = React.useState<Category[]>([]);
+  const [categories, setCategories] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -69,7 +66,7 @@ export function CategoryFilter({
           {categories.map((category, index) => (
             <SelectItem
               key={`category-${index}-${category}`}
-              value={category.slug}
+              value={category}
               className="text-gray-900 hover:bg-gray-100 cursor-pointer"
             >
               {category.slug}
