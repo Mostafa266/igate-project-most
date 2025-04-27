@@ -1,8 +1,8 @@
 import Container from "@/components/ui/container";
 import React, { useEffect, useState } from "react";
 import ProductList from "./ProductList";
-import { PriceFilter } from "@/app/filters/PriceFilter";
-import { CategoryFilter } from "@/app/filters/CategoryFilter";
+import { PriceFilter } from "@/filters/PriceFilter";
+import { CategoryFilter } from "@/filters/CategoryFilter";
 import { useSearchParams } from "next/navigation";
 import { PaginationComponent } from "@/components/pagination";
 
