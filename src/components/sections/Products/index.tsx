@@ -18,7 +18,8 @@ const ProductsContent = () => {
   const [loading, setLoading] = useState(Boolean);
 
   const handleCategoryChange = (value: SetStateAction<string>) => {
-    const newValue = typeof value === 'function' ? value(selectedCategory) : value;
+    const newValue =
+      typeof value === "function" ? value(selectedCategory) : value;
     setSelectedCategory(newValue);
     // Update URL with new category and reset page to 1
     const params = new URLSearchParams(searchParams.toString());
@@ -31,18 +32,19 @@ const ProductsContent = () => {
     const fetchProducts = async () => {
       const limit = 10;
       const skip = (page - 1) * limit;
-      const baseUrl = selectedCategory !== "all" 
-        ? `https://dummyjson.com/products/category/${selectedCategory}`
-        : `https://dummyjson.com/products`;
+      const baseUrl =
+        selectedCategory !== "all"
+          ? `https://dummyjson.com/products/category/${selectedCategory}`
+          : `https://dummyjson.com/products`;
 
       try {
         setLoading(true);
-        const response = await fetch(
-          `${baseUrl}?limit=${limit}&skip=${skip}`
-        );
+        const response = await fetch(`${baseUrl}?limit=${limit}&skip=${skip}`);
         const data = await response.json();
         setProducts(data.products || data);
-        setTotalPages(Math.min(Math.ceil((data.total || data.length) / limit), 10));
+        setTotalPages(
+          Math.min(Math.ceil((data.total || data.length) / limit), 10)
+        );
       } catch (error) {
         console.error("Error to get products", error);
       } finally {

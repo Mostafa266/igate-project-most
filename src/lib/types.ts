@@ -5,7 +5,6 @@ export type INavLink = {
     href: string;
 };
 
-
 export type ISponsorsImage = {
     id:string,
     src:StaticImageData;
@@ -43,11 +42,13 @@ export type IPagination = {
     totalPages:number;
 }
 
-export type IProductState = {
+export type ProductListProps = {
+    range: number[];
     products: IProductCard[];
-    filterProducts:IProductCard[];
-    loading:boolean;
-}
+    loading: boolean;
+    selectedCategory: string;
+};
+  
 
 
 export type ICategory = {

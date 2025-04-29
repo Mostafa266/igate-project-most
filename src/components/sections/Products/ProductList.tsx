@@ -1,12 +1,5 @@
 import ProductCard from "@/components/cards/ProductCard";
-import { IProductCard } from "@/lib/types";
-
-type ProductListProps = {
-  range: number[];
-  products: IProductCard[];
-  loading: boolean;
-  selectedCategory: string;
-};
+import { ProductListProps } from "@/lib/types";
 
 export default function ProductList({
   range,
@@ -14,17 +7,24 @@ export default function ProductList({
   loading,
   selectedCategory,
 }: ProductListProps) {
+  ///////////////////
+  ///////////////////
+  ///////////////////
   const filteredProducts = products.filter((product) => {
     const matchesPrice = product.price >= range[0] && product.price <= range[1];
     const matchesCategory =
       selectedCategory === "all" || product.category === selectedCategory;
+
     return matchesPrice && matchesCategory;
   });
+  console.log(filteredProducts, "asd");
 
   return (
     <div>
       {loading ? (
-        <div>Loading...</div>
+        <div className="min-h-[60rem] w-full flex my-10 justify-center items-center">
+          <span className="text-4xl text-amber-500">Loading...</span>
+        </div>
       ) : (
         <div className="min-h-[60rem] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 my-10 gap-2">
           {filteredProducts.map((product) => (
