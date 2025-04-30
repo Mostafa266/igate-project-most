@@ -17,7 +17,6 @@ export default function ProductList({
 
     return matchesPrice && matchesCategory;
   });
-  console.log(filteredProducts, "asd");
 
   return (
     <div>

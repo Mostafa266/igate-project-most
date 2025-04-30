@@ -20,7 +20,8 @@ const ProductsContent = () => {
   const handleCategoryChange = (value: SetStateAction<string>) => {
     const newValue =
       typeof value === "function" ? value(selectedCategory) : value;
-    setSelectedCategory(newValue);
+    setSelectedCategory(value);
+
     // Update URL with new category and reset page to 1
     const params = new URLSearchParams(searchParams.toString());
     params.set("category", newValue);
